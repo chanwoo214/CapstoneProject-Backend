@@ -8,6 +8,7 @@ npm-debug.log*
 
 #Environment config
 *.env
+aws-exports.js
 
 
 # Runtime data

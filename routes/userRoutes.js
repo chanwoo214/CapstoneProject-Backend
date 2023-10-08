@@ -1,13 +1,13 @@
-let express = require("express");
-let router = express.Router();
-let Controllers = require("../controllers"); //index.js
+import { Router } from "express";
+let router = Router();
+import { userController } from "../controllers"; //index.js
 
-router.get('/', (req, res) => {
-    Controllers.userController.getUsers(res);
+router.get('/users', (req, res) => {
+    userController.getUsers(res);
 })
 
-router.post('/', (req, res) => {
-    Controllers.userController.createUser(req.body, res)
+router.post('/users', (req, res) => {
+    userController.createUser(req.body, res)
 })
 
-module.exports = router;
+export default router;

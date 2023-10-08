@@ -1,22 +1,22 @@
 require("dotenv").config();
 const express = require("express");
 let dbConnect = require("./dbConnect");
-let userRoutes = require('./routes/userRoutes');
-let postRoutes = require('./routes/postRoutes');
-let commentRoutes = require('./routes/commentRoutes');
-
+let gameRoutes = require("./routes/gameRoutes")
+const cors = require("cors");
 const app = express();
+const verifyToken = require('./middlewares/verifyTokenMiddleware');
 
 // parse requests of content-type - application / json
 app.use(express.json());
+app.use(cors());
 
-app.use('/api/users', userRoutes);
-app.use('/api/posts', postRoutes);
-app.use('/api/comments', commentRoutes);
+// Register a middleware to protect routes
+//app.use(verifyToken);
 
+app.use('/api', verifyToken, gameRoutes); //this applies verifyToken to /api only
 
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to myMongoDB application." });
+    res.json({ message: "Welcome from the API. This root path is not protected." });
 });
 
 // set port, listen for requests
