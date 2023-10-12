@@ -9,11 +9,10 @@ const clientSchema = Schema({
     rate: { type: Number, required: true },
     refixDate: { type: String, required: true },
     amount: { type: Number, required: true },
-    isDeleted: { type: Boolean, default: false },
     description: { type: String, required: true },
 }, { timestamps: true });
 
-loanSchemaSchema.methods.toJSON = function () {
+clientSchema.methods.toJSON = function () {
     const obj = this._doc
     delete obj.__v
     delete obj.updateAt

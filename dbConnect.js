@@ -1,7 +1,7 @@
 'use strict';
 const Mongoose = require('mongoose');
-const uri = process.env.REACT_APP_BACKEND_URL;
-console.log("process.env.REACT_APP_BACKEND_URL=", uri);
+const uri = process.env.VITE_REACT_APP_BACKEND_URL;
+console.log("VITE_REACT_APP_BACKEND_URL", uri);
 const mongooseOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true

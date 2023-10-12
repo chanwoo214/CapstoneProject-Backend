@@ -1,4 +1,5 @@
 'use strict'
 module.exports = {
-    gameController: require('./gameController')
+    clientController: require('./clientController'),
+    taskController: require('./taskController'),
 };

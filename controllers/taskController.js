@@ -1,4 +1,4 @@
-const Task = require("../models/Task");
+const Task = require("../models/task");
 
 const taskController = {};
 
@@ -17,12 +17,6 @@ taskController.createTask = async (req, res) => {
 taskController.getTasks = async (req, res) => {
   try {
     const taskList = await Task.find({});
-    console.log("tttt", taskList);
-    // const taskList = [
-    //   { task: "테스트", isComplete: false, id: 0 },
-    //   { task: "테스트", isComplete: false, id: 3 },
-    //   { task: "테스트", isComplete: false, id: 4 },
-    // ];
     res.status(200).json({ status: "success", data: taskList });
   } catch (error) {
     res.status(400).json({ status: "fail", error });

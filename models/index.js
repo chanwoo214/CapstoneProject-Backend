@@ -1,4 +1,5 @@
 'use strict'
 module.exports = {
-    Game: require('./game')
+    Task: require('./task'),
+    Client: require('./client'),
 };
